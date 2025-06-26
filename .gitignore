@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Virtual environment
+venv/
+.env
+.env.*
+
+# Editor files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+# Compiled or temporary
+*.tmp
+*.bak
+*.swp
+*.~ 
+*.db
+
+# Distribution/build
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Flask/OAuth stuff
+instance/
+*.sqlite3
+credentials.json
+token.json
+auth.json
+.google_auth/
+
+# MCP temporary/session data
+mcp_sessions/
+mcp_cache/
+
+# Optional: Ignore resume if it contains personal info
+resume.md
+
+# Jupyter or notebooks if used
+.ipynb_checkpoints/
+*.ipynb

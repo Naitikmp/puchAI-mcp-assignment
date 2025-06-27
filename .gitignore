@@ -9,6 +9,9 @@ __pycache__/
 venv/
 .env
 .env.*
+.credentials.json
+states/
+tokens/
 
 # Editor files
 .vscode/

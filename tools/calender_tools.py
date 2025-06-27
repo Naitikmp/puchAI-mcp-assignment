@@ -2,10 +2,12 @@
 
 import os
 import datetime
+from config import BASE_URL
 from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
 from mcp import McpError, ErrorData
 from mcp.types import TextContent
+import requests
 
 SCOPES = ["https://www.googleapis.com/auth/calendar"]
 TOKEN_DIR = "tokens"
@@ -19,6 +21,18 @@ def get_user_calendar_service(user_id: str):
     return build("calendar", "v3", credentials=creds)
 
 def register_calendar_tools(mcp):
+
+    @mcp.tool(description="Connect the user's Google Calendar using OAuth.")
+    async def connect_calendar(user_id: str) -> str:
+        # Hit your FastAPI endpoint to get auth_url
+        response = requests.get(f"{BASE_URL}/oauth/initiate", params={"user_id": user_id})
+        if response.status_code == 200:
+            auth_url = response.json()["auth_url"]
+            return f"🔗 Click to connect your calendar: {auth_url}"
+        else:
+            return "❌ Failed to initiate calendar connection. Try again later."
+
+
     @mcp.tool(description="Schedule an event on the user's Google Calendar.")
     async def add_event_for_user(user_id: str, title: str, start_time: str, end_time: str) -> str:
         try:

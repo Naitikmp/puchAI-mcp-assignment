@@ -57,3 +57,5 @@ resume.md
 # Jupyter or notebooks if used
 .ipynb_checkpoints/
 *.ipynb
+
+.cursorignore

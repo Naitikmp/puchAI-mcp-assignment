@@ -8,3 +8,5 @@ pydantic>=2.7
 python-dotenv>=1.0.1
 openai
 requests
+yfinance
+geopy
